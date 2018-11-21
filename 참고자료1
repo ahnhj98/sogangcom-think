@@ -40,3 +40,7 @@ file.close()
 lst = word_counter.most_common(n_print)
 df = pd.DataFrame(lst, columns = ['Word', 'Count'])
 df.plot.bar(x='Word',y='Count')
+# 위에 사이트 본문
+https://towardsdatascience.com/very-simple-python-script-for-extracting-most-common-words-from-a-story-1e3570d0b9d0 
+# 불필요한 기호 
+https://www.geeksforgeeks.org/python-program-crawl-web-page-get-frequent-words/

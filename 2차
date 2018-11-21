@@ -1,0 +1,35 @@
+# 고정된 사이트에서 빈도 수가 높은 단어를 가지고 사이트의 글의 주제를 알아내는 프로그래밍
+import requests
+r = requests.get("https:/뭘로 하는 게 좋을까?/") # 문서화된 자료를 가진 고정된 사이트(5개)
+r.encoding = 'utf8' 
+data = str(r.text)
+begin =data.find("~~")
+end = data.rfind("~~")
+data = data[begin:end]
+words = data.split()
+mydict ={}
+word = words
+for w  in word:
+     if w in mydict:
+        mydict[w]+=1
+     else:
+        mydict[w]=1
+ #print(mydict)
+for k in sorted(mydict, key=mydict__getitem, reverse=True):
+     print("%s:%s" %s(k, mydict[k])
+
+#
+
+# 빈도수 상위 20개
+cnt = 0
+for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
+    if cnt == 20: break
+    print('%s: %s' %(k,mydict[k]))
+    cnt += 1
+#replace 사용해서 불필요한거 제거
+
+
+# 딕셔너리 안에서 각 주제별 빈도가 높은 단어 프로그램 작성
+
+
+# 사이트 내 빈도가 높은 단어를 딕셔너리 안에서 확인할 수 있어야 함(5분야)

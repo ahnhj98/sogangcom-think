@@ -11,6 +11,8 @@ data = data.replace("a ","")
 data = data.replace("the ","")
 data = data.replace("is ","")
 data = data.replace("are ","")
+data = data.replace(".","")
+data = data.replcae(",","")
 
 words = data.split()
 mydict ={}

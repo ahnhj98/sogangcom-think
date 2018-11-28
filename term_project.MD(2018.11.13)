@@ -5,8 +5,8 @@ url1 ="https://www.nytimes.com/2018/11/27/us/politics/manafort-lawyer-trump-coop
 r = requests.get(url1)
 r.encoding = 'utf8' 
 data = str(r.text)
-begin =data.find("~~")
-end = data.rfind("~~")
+begin =data.find("WASHINGTON")
+end = data.rfind("what Mr.Trump did")
 data = data[begin:end]
 # 불필요한 단어, 문자 제거
 data = data.replace("a ","")
@@ -43,15 +43,17 @@ for w  in word:
         mydict[w]+=1
      else:
         mydict[w]=1
-print(mydict)
-for k in sorted(mydict, key=mydict__getitem, reverse=True):
+#print(mydict)
+#for k in sorted(mydict, key=mydict__getitem, reverse=True):
      print("%s:%s" %s(k, mydict[k])
+
+# 빈도수 상위 20개
 cnt = 0
-# 빈도수 상위 20개 
 for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
     if cnt == 20: break
     print('%s: %s' %(k,mydict[k]))
     cnt += 1
 # 딕셔너리 안에서 각 주제별 빈도가 높은 단어 프로그램 작성이 필요함
+mydict1 = {'politic' : ['trump', 'manafort'] , 'sport' :['football', 'league']}
 # 빈도가 높은 사이트 내 단어를 딕셔너리 안에서 확인할 수 있어야 함
  

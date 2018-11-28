@@ -13,6 +13,13 @@ data = data.replace("is ","")
 data = data.replace("are ","")
 data = data.replace(".","")
 data = data.replcae(",","")
+data = data.replace("{","")
+data = data.replace("}","")
+data = data.replace(">","")
+data = data.replace("<","")
+data = data.replace("&&","")
+data = data.replace('"',"")
+data = data.replace("/","")
 
 words = data.split()
 mydict ={}

@@ -6,6 +6,12 @@ data = str(r.text)
 begin =data.find("~~")
 end = data.rfind("~~")
 data = data[begin:end]
+# 불필요한 단어, 문자 제거
+data = data.replace("a ","")
+data = data.replace("the ","")
+data = data.replace("is ","")
+data = data.replace("are ","")
+
 words = data.split()
 mydict ={}
 word = words

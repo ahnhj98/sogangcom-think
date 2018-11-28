@@ -34,7 +34,6 @@ data = data.replace("/","")
 data = data.replace("li ","")
 data = data.replace("with ","")
 
-
 words = data.split()
 mydict ={}
 word = words

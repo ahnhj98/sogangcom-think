@@ -1,7 +1,7 @@
 # 고정된 사이트에서 빈도 수가 높은 단어를 가지고 사이트의 글의 주제를 알아내는 프로그래밍
 import requests
 # 사이트가져오기
-url1 ="https://"
+url1 ="https://www.nytimes.com/2018/11/27/us/politics/manafort-lawyer-trump-cooperation.html"
 r = requests.get(url1)
 r.encoding = 'utf8' 
 data = str(r.text)

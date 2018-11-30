@@ -1,14 +1,14 @@
-# 고정된 사이트에서 빈도 수가 높은 단어를 가지고 사이트의 글의 주제를 알아내는 프로그래밍
 import requests
-# 사이트가져오기
 url1 ="https://www.nytimes.com/2018/11/27/us/politics/manafort-lawyer-trump-cooperation.html"
+url2 = ""
+url3 = ""
 r = requests.get(url1)
 r.encoding = 'utf8' 
 data = str(r.text)
 begin =data.find("WASHINGTON")
 end = data.rfind("what Mr.Trump did")
 data = data[begin:end]
-# 불필요한 단어, 문자 제거
+
 data = data.replace("a ","")
 data = data.replace("the ","")
 data = data.replace("is ","")
@@ -33,7 +33,7 @@ data = data.replace('"',"")
 data = data.replace("/","")
 data = data.replace("li ","")
 data = data.replace("with ","")
-
+# replace 간추리는 방법 찾는 중..
 words = data.split()
 mydict ={}
 word = words
@@ -46,13 +46,11 @@ for w  in word:
 #for k in sorted(mydict, key=mydict__getitem, reverse=True):
      print("%s:%s" %s(k, mydict[k])
 
-# 빈도수 상위 20개
 cnt = 0
 for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
     if cnt == 20: break
     print('%s: %s' %(k,mydict[k]))
     cnt += 1
-# 딕셔너리 안에서 각 주제별 빈도가 높은 단어 프로그램 작성이 필요함
 mydict1 = {'politic' : ['trump', 'manafort'] , 'sport' :['football', 'league']}
 # 빈도가 높은 사이트 내 단어를 딕셔너리 안에서 확인할 수 있어야 함
  

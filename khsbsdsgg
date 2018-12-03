@@ -1,0 +1,15 @@
+with open("route20181203.txt" , encoding='utf8') as f:
+   d = f.read()
+d2=d.split('^')
+
+for k in d2:
+   d3 = k.split('|')
+   if d3[0] == "ROUTE_ID" : print(d3,file=f)
+   if d3[5].find("신촌") >= 0 : print(d3,file=f)
+ 
+   if d[3] == "ROUTE_ID" : print(d3[0],d3[1],d3[7])
+   if d3[7].find("신촌") >= 0 : print(d3[0],d3[1],d3[7])
+f.close()
+#   print(d3)
+#   if c>10 :break
+#   c+=1

@@ -1,0 +1,75 @@
+mydict1 = {'politic' : ['trump', 'manafort'] , 'sport' :['game', 'league','Bowl']}
+
+import requests
+url1 ="https://www.nytimes.com/2018/11/27/us/politics/manafort-lawyer-trump-cooperation.html"
+url2 = "https://www.nytimes.com/2018/12/04/us/politics/trump-kim-north-korea-summit-meeting.html"
+url3 = "https://www.nytimes.com/2018/12/04/us/politics/trump-tariff-man-china-trade.html"
+
+#r = requests.get(url1)
+#r.encoding = 'utf8' 
+#data = str(r.text)
+#begin =data.find("WASHINGTON")
+#end = data.rfind("what Mr.Trump did")
+#data = data[begin:end]
+ 
+#r = requests.get(url2)
+#r.encoding = 'utf8'
+#data = str(r.text)
+#begin = data.find("WASHINGTON")
+#end = data.rfind("next meeting.")
+#data = data[begin:end]
+ 
+#r=requests.get(url3) 
+#r.encoding = 'utf8'
+#data = str(r.text)
+#begin = data.find("WASHINGTON")
+#end = data.rfind("as soon as possible")
+#data = data[begin:end] 
+ 
+import re
+data = re.sub("<.+?>",'',data)
+
+data = data.replace(".","")
+data = data.replace(",","")
+data = data.replace("{","")
+data = data.replace("}","")
+data = data.replace(">","")
+data = data.replace("<","")
+data = data.replace("&&","")
+data = data.replace('"',"")
+data = data.replace("/","")
+data = data.replace("a ","")
+data = data.replace("the ","")
+data = data.replace("is ","")
+data = data.replace("are ","")
+data = data.replace("to ","")
+data = data.replace("on ","")
+data = data.replace("it ","")
+data = data.replace("in ","")
+data = data.replace("of ","")
+data = data.replace("he ","")
+data = data.replace("she ","")
+data = data.replace("that ","")
+data = data.replace("for ","")
+data = data.replace("by ","")
+data = data.replace("li ","")
+data = data.replace("with ","")
+
+words = data.split()
+mydict ={}
+word = words
+for w  in word:
+     if w in mydict:
+        mydict[w]+=1
+     else:
+        mydict[w]=1
+#print(mydict)
+#for k in sorted(mydict, key=mydict__getitem, reverse=True):
+#     print("%s:%s" %s(k, mydict[k])
+
+cnt = 0
+for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
+    if cnt == 20: break
+    print('%s: %s' %(k,mydict[k]))
+    cnt += 1
+

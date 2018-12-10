@@ -1,31 +1,29 @@
-mydict1 = {'politic' : ['trump', 'manafort'] , 'sport' :['game', 'league','Bowl']}
-
 import requests
 url1 ="https://www.nytimes.com/2018/11/27/us/politics/manafort-lawyer-trump-cooperation.html"
-url2 = "https://www.nytimes.com/2018/12/04/us/politics/trump-kim-north-korea-summit-meeting.html"
-url3 = "https://www.nytimes.com/2018/12/04/us/politics/trump-tariff-man-china-trade.html"
+url2 ="https://www.nytimes.com/2018/12/04/us/politics/trump-kim-north-korea-summit-meeting.html"
+url3 ="https://www.nytimes.com/2018/12/04/us/politics/trump-tariff-man-china-trade.html"
 
-#r = requests.get(url1)
-#r.encoding = 'utf8' 
-#data = str(r.text)
-#begin =data.find("WASHINGTON")
-#end = data.rfind("what Mr.Trump did")
-#data = data[begin:end]
+r = requests.get(url1)
+r.encoding = 'utf8' 
+data1 = str(r.text)
+begin =data1.find("WASHINGTON")
+end = data1.rfind("what Mr.Trump did")
+data = data1[begin:end]
  
-#r = requests.get(url2)
-#r.encoding = 'utf8'
-#data = str(r.text)
-#begin = data.find("WASHINGTON")
-#end = data.rfind("next meeting.")
-#data = data[begin:end]
+r = requests.get(url2)
+r.encoding = 'utf8'
+data2 = str(r.text)
+begin = data2.find("WASHINGTON")
+end = data2.rfind("next meeting.")
+data = data + data2[begin:end]
  
-#r=requests.get(url3) 
-#r.encoding = 'utf8'
-#data = str(r.text)
-#begin = data.find("WASHINGTON")
-#end = data.rfind("as soon as possible")
-#data = data[begin:end] 
- 
+r=requests.get(url3) 
+r.encoding = 'utf8'
+data3 = str(r.text)
+begin = data3.find("WASHINGTON")
+end = data3.rfind("as soon as possible")
+data = data + data3[begin:end] 
+
 import re
 data = re.sub("<.+?>",'',data)
 
@@ -55,6 +53,8 @@ data = data.replace("by ","")
 data = data.replace("li ","")
 data = data.replace("with ","")
 
+data=data.lower()
+
 words = data.split()
 mydict ={}
 word = words
@@ -66,10 +66,19 @@ for w  in word:
 #print(mydict)
 #for k in sorted(mydict, key=mydict__getitem, reverse=True):
 #     print("%s:%s" %s(k, mydict[k])
-
+'''
 cnt = 0
 for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
     if cnt == 20: break
     print('%s: %s' %(k,mydict[k]))
     cnt += 1
+'''
+    
+mydict1 = {'politic' : ['trump', 'manafort'] , 'sport' :['game', 'league','Bowl']}
 
+word_cnt=0
+for word in words:
+   for key, value in mydict1.items():
+      if word in value:
+         word_cnt = word_cnt+1
+         print("This article is about", key)

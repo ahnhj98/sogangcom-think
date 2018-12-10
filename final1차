@@ -66,13 +66,13 @@ for w  in word:
 #print(mydict)
 #for k in sorted(mydict, key=mydict__getitem, reverse=True):
 #     print("%s:%s" %s(k, mydict[k])
-'''
+print("Top 20 words mentioned in articles")
 cnt = 0
 for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
     if cnt == 20: break
     print('%s: %s' %(k,mydict[k]))
     cnt += 1
-'''
+
     
 mydict1 = {'politic' : ['trump', 'manafort'] , 'sport' :['game', 'league','Bowl']}
 mydict2 = {'politic' : 0, 'sport' :0}

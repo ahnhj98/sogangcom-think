@@ -1,4 +1,4 @@
-import requests
+import requests, operator
 url1 ="https://www.nytimes.com/2018/11/27/us/politics/manafort-lawyer-trump-cooperation.html"
 url2 ="https://www.nytimes.com/2018/12/04/us/politics/trump-kim-north-korea-summit-meeting.html"
 url3 ="https://www.nytimes.com/2018/12/04/us/politics/trump-tariff-man-china-trade.html"
@@ -75,10 +75,15 @@ for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
 '''
     
 mydict1 = {'politic' : ['trump', 'manafort'] , 'sport' :['game', 'league','Bowl']}
-
+mydict2 = {'politic' : 0, 'sport' :0}
 word_cnt=0
 for word in words:
-   for key, value in mydict1.items():
-      if word in value:
-         word_cnt = word_cnt+1
-         print("This article is about", key)
+     for key, value in mydict1.items():
+          if word in value:
+               mydict2[key] += 1
+
+if mydict2['politic'] > mydict2['sport']: print("These articles are about politic")
+else : print("These articles ard about sport")
+         
+      
+       

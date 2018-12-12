@@ -1,4 +1,4 @@
-import requests, operator
+import requests
 url1 ="https://www.nytimes.com/2018/11/27/us/politics/manafort-lawyer-trump-cooperation.html"
 url2 ="https://www.nytimes.com/2018/12/04/us/politics/trump-kim-north-korea-summit-meeting.html"
 url3 ="https://www.nytimes.com/2018/12/04/us/politics/trump-tariff-man-china-trade.html"
@@ -63,9 +63,7 @@ for w  in word:
         mydict[w]+=1
      else:
         mydict[w]=1
-#print(mydict)
-#for k in sorted(mydict, key=mydict__getitem, reverse=True):
-#     print("%s:%s" %s(k, mydict[k])
+
 print("Top 20 words mentioned in articles")
 cnt = 0
 for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
@@ -74,16 +72,15 @@ for k in sorted(mydict, key=mydict.__getitem__, reverse=True):
     cnt += 1
 
     
-mydict1 = {'politic' : ['trump', 'manafort'] , 'sport' :['game', 'league','Bowl']}
-mydict2 = {'politic' : 0, 'sport' :0}
+mydict1 = {'politic' : ['trump', 'manafort','state'] , 'sport' :['game', 'league','Bowl','state'], 'economic' :['rate','market']}
+mydict2 = {'politic' : 0, 'sport' :0, 'economic' :0}
 word_cnt=0
 for word in words:
      for key, value in mydict1.items():
           if word in value:
                mydict2[key] += 1
 
-if mydict2['politic'] > mydict2['sport']: print("These articles are about politic")
-else : print("These articles ard about sport")
-         
-      
-       
+mydict2 = sorted(mydict2, key=lambda k: mydict2[k], reverse=True)
+
+print("These articles are about", mydict2[0])
+

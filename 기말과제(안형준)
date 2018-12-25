@@ -83,4 +83,3 @@ for word in words:
 mydict2 = sorted(mydict2, key=lambda k: mydict2[k], reverse=True)
 
 print("These articles are about", mydict2[0])
-
